@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="use_sim_time" default="true"/>
+  <arg name="map_file"
+       default="$(find-pkg-share nav2_bringup)/maps/my_map.yaml"/>
+  <arg name="params_file"
+       default="$(find-pkg-share nav2_bringup)/params/nav2_params.yaml"/>
+
+  <!-- map server -->
+  <node pkg="nav2_map_server" exec="map_server" name="map_server" output="screen">
+    <param name="use_sim_time"    value="$(var use_sim_time)"/>
+    <param name="yaml_filename"   value="$(var map_file)"/>
+  </node>
+
+  <!-- AMCL -->
+  <node pkg="nav2_amcl" exec="amcl" name="amcl" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param from="$(var params_file)"/>
+  </node>
+
+  <!-- global planner -->
+  <node pkg="nav2_planner" exec="planner_server" name="planner_server" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param from="$(var params_file)"/>
+  </node>
+
+  <!-- local controller -->
+  <node pkg="nav2_controller" exec="controller_server" name="controller_server" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param from="$(var params_file)"/>
+  </node>
+
+  <!-- recovery behaviours -->
+  <node pkg="nav2_behaviors" exec="behavior_server" name="behavior_server" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param from="$(var params_file)"/>
+  </node>
+
+  <!-- BT navigator -->
+  <node pkg="nav2_bt_navigator" exec="bt_navigator" name="bt_navigator" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param from="$(var params_file)"/>
+  </node>
+
+  <!-- lifecycle manager - boots all nodes in order -->
+  <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager"
+        name="lifecycle_manager_navigation" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param name="autostart"    value="true"/>
+    <param name="node_names" value="[map_server, amcl, planner_server, controller_server, behavior_server, bt_navigator]" type="yaml"/>
+  </node>
+
+</launch>

@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<robot name="slam_lidar_midplate_middle" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+</robot>

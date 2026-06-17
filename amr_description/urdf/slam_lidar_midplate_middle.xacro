@@ -1,0 +1,242 @@
+<?xml version="1.0" ?>
+<robot name="slam_lidar_midplate_middle" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find amr_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find amr_description)/urdf/slam_lidar_midplate_middle.ros2control" />
+<xacro:include filename="$(find amr_description)/urdf/slam_lidar_midplate_middle.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.12509032426168165 -0.07395516271652715 0.26127560952038015" rpy="0 0 0"/>
+    <mass value="21.041155080652292"/>
+    <inertia ixx="0.188108" iyy="0.289502" izz="0.293599" ixy="-0.000208" iyz="-0.000266" ixz="-7.4e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red">
+      <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2">
+  <inertial>
+    <origin xyz="7.392549115067815e-06 -0.04011510772339327 -1.6452849457837537e-07" rpy="0 0 0"/>
+    <mass value="7.7692039603760845"/>
+    <inertia ixx="0.01318" iyy="0.022658" izz="0.013179" ixy="-3e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.125 0.188241 -0.226241" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red">
+      <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.125 0.188241 -0.226241" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1">
+  <inertial>
+    <origin xyz="-7.392549115026181e-06 0.040115250423588523 -1.6452849452286422e-07" rpy="0 0 0"/>
+    <mass value="7.7692039603760845"/>
+    <inertia ixx="0.01318" iyy="0.022658" izz="0.013179" ixy="-3e-06" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.125 -0.041759 -0.226241" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red">
+      <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.125 -0.041759 -0.226241" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ball_caster_wheel__1__1">
+  <inertial>
+    <origin xyz="1.3877787807814457e-17 7.134979032596966e-08 -0.012099122560755626" rpy="0 0 0"/>
+    <mass value="0.1479113408447469"/>
+    <inertia ixx="2.2e-05" iyy="2e-05" izz="2.4e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 0.073241 -0.174741" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/ball_caster_wheel__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 0.073241 -0.174741" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/ball_caster_wheel__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ball_caster_wheel_1">
+  <inertial>
+    <origin xyz="-5.551115123125783e-17 7.134979036760303e-08 -0.012099122560755599" rpy="0 0 0"/>
+    <mass value="0.1479113408447469"/>
+    <inertia ixx="2.2e-05" iyy="2e-05" izz="2.4e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.29 0.073241 -0.174741" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/ball_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.29 0.073241 -0.174741" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/ball_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar">
+  <inertial>
+    <origin xyz="0.0 7.135009752468058e-08 0.043310428649901755" rpy="0 0 0"/>
+    <mass value="0.5565046796809807"/>
+    <inertia ixx="0.000186" iyy="0.000186" izz="0.000341" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.125 0.073241 -0.296241" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red">
+      <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.125 0.073241 -0.296241" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find amr_description)/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+ <link name="imu_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.0000015" iyy="0.0000015" izz="0.0000015" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.03 0.03 0.01"/>
+    </geometry>
+    <material name="red">
+      <color rgba="0.0 1.0 0.0 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.03 0.03 0.01"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.05"/>
+    <inertia ixx="0.000001" iyy="0.000001" izz="0.000001"
+             ixy="0.0" ixz="0.0" iyz="0.0"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.05 0.03 0.03"/>
+    </geometry>
+    <material name="dark_grey">
+      <color rgba="0 1.0 0.0 1.0"/>
+    </material>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.05 0.03 0.03"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link_optical"/> 
+
+<joint name="Rigid 1" type="continuous">
+  <origin xyz="-0.125 -0.188241 0.226241" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_2"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.04 -0.073241 0.174741" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ball_caster_wheel__1__1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="-0.29 -0.073241 0.174741" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ball_caster_wheel_1"/>
+</joint>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="-0.125 -0.073241 0.316241" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar"/>
+</joint>
+
+<joint name="Rigid 6" type="continuous">
+  <origin xyz="-0.125 0.041759 0.226241" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="-0.125 -0.073241 0.290" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+</joint> 
+
+<joint name="camera_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="camera_link"/>
+  <origin xyz="0.0 -0.073241 0.409" rpy="0.0 0.0 0.0"/>
+</joint>
+
+<joint name="camera_optical_joint" type="fixed">
+  <parent link="camera_link"/>
+  <child link="camera_link_optical"/>
+  <origin xyz="0.03 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+</joint>
+
+</robot>
